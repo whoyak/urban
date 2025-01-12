@@ -1,23 +1,25 @@
 def is_prime(func):
-    def wrapper(*args):
-        total = func(*args)
-        if total <= 1:
-            print("Составное")
-        else:
-            for i in range(2, int(total ** 0.5) + 1):
-                if total % 1 == 0:
+  
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        if result > 1:  # Проверяем, что число больше 1
+            for i in range(2, int(result ** 0.5) + 1):
+                if result % i == 0:
                     print("Составное")
                     break
-                else:
-                    print("Простое")
-        return total
+            else:
+                print("Простое")
+        else:
+            print("Составное")
+        return result
+
     return wrapper
 
-
 @is_prime
-def sum_three(a,b,c):
-    return a+b+c
+def sum_three(a, b, c):
+    return a + b + c
 
-
-result = sum_three(2, 3, 6)
-print(result)
+# Пример вызова
+if __name__ == "__main__":
+    result = sum_three(2, 3, 6)
+    print(result)
