@@ -9,7 +9,7 @@ from aiogram.dispatcher import FSMContext
 
 logging.basicConfig(level=logging.INFO)
 
-API_TOKEN = '6778452587:AAFYxjiVINBwwxlJYaeYDlSTbwbK36Znd64'
+API_TOKEN = 'TOKEN'
 
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()  # Используем MemoryStorage для хранилища состояний
